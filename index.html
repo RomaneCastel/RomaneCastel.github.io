@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Romane Castel · Research Engineer</title>
+  <meta name="description" content="Romane Castel — research engineer in Zurich working on LLM agents, model evaluation and generative AI.">
+  <meta property="og:title" content="Romane Castel · Research Engineer">
+  <meta property="og:description" content="LLM agents, model evaluation and generative AI systems. Zurich.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%234f46e5'/><text x='50%' y='54%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'>RC</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fc;
+      --surface: #ffffff;
+      --text: #141824;
+      --muted: #5b6275;
+      --border: #e3e6ef;
+      --accent: #4f46e5;
+      --accent-2: #0ea5e9;
+      --accent-soft: #eef0ff;
+      --on-accent: #ffffff;
+      --shadow: 0 1px 2px rgba(20,24,36,.04), 0 8px 24px rgba(20,24,36,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0d1017; --surface: #151a24; --text: #e8eaf1; --muted: #9aa2b5;
+        --border: #252c3a; --accent: #8b85ff; --accent-2: #38bdf8; --accent-soft: #1d2140; --on-accent: #0d1017;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0d1017; --surface: #151a24; --text: #e8eaf1; --muted: #9aa2b5;
+      --border: #252c3a; --accent: #8b85ff; --accent-2: #38bdf8; --accent-soft: #1d2140; --on-accent: #0d1017;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: .92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .theme-btn {
+      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+      display: grid; place-items: center; padding: 0;
+    }
+    @media (max-width: 640px) { .nav-links a { display: none; } }
+
+    /* Hero */
+    .hero { padding: 88px 0 64px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft); padding: 6px 12px; border-radius: 999px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.05; letter-spacing: -.035em;
+      margin: 20px 0 16px; font-weight: 800;
+    }
+    .grad {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 12px;
+      font-weight: 600; font-size: .95rem; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn.primary { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    h2 { font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 28px; }
+
+    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 760px) { .highlights { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      padding: 22px; box-shadow: var(--shadow); transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+    .card h3 { margin: 10px 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .icon {
+      width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent); font-size: 1.2rem;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; margin-left: 8px; border-left: 2px solid var(--border); }
+    .job { position: relative; padding: 0 0 32px 28px; }
+    .job::before {
+      content: ""; position: absolute; left: -8px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--surface); border: 3px solid var(--accent);
+    }
+    .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+    .job h3 { margin: 0; font-size: 1.1rem; }
+    .job h3 .org { color: var(--accent); }
+    .meta { color: var(--muted); font-size: .88rem; }
+    .job ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+    .job li { margin: 4px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag {
+      font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+    }
+
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
+    .project .year { font-size: .8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
+    .skills .card h3 { margin-top: 0; }
+
+    .edu { display: grid; gap: 12px; }
+    .edu .card { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+    .edu h3 { margin: 0; }
+    .edu p { margin: 4px 0 0; }
+
+    .contact { text-align: center; }
+    .contact .card { padding: 40px 24px; }
+    .contact .btns { justify-content: center; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: .85rem; text-align: center; }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#top">Romane<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>Zurich, Switzerland</span>
+        <h1>Hi, I'm Romane.<br><span class="grad">I build and evaluate AI systems.</span></h1>
+        <p class="lead">
+          Research engineer working on LLM agents, model evaluation and generative AI.
+          I like the space between research and engineering: turning models into systems
+          people rely on, and measuring rigorously whether they work.
+        </p>
+        <div class="btns">
+          <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+            Download CV
+          </a>
+          <a class="btn" href="https://github.com/RomaneCastel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/romane-castel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn" href="mailto:romane.castel.pro@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT / HIGHLIGHTS -->
+    <section id="about">
+      <div class="wrap">
+        <h2 class="reveal">What I work on</h2>
+        <p class="sub reveal">Experience at Amazon, Microsoft, Disney Research and Luware, with an ML background from ETH Zurich.</p>
+        <div class="highlights">
+          <div class="card reveal">
+            <div class="icon">⚙︎</div>
+            <h3>LLM agents</h3>
+            <p>Multi-agent systems with LangGraph, and MCP tools that let agents act safely on real platforms.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">◎</div>
+            <h3>Model evaluation</h3>
+            <p>Evaluation harnesses with LLM judges, regression testing across model versions, confidence scoring and abstention.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">✦</div>
+            <h3>Generative AI</h3>
+            <p>Turning text-to-image and text-to-video research models into tools researchers use every day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <h2 class="reveal">Experience</h2>
+        <p class="sub reveal">From large-scale data systems to research engineering and LLM agents.</p>
+        <div class="timeline">
+
+          <div class="job reveal">
+            <div class="job-head">
+              <h3>Software Engineer · <span class="org">Luware</span></h3>
+              <span class="meta">2026 · Zurich</span>
+            </div>
+            <ul>
+              <li>Built and shipped a multi-agent AI assistant for a contact-centre platform (Python, LangGraph/LangChain, Azure AI Foundry).</li>
+              <li>Built the evaluation harness used to compare models: replays tasks in several languages, scores answers with LLM judges and catches regressions early.</li>
+              <li>Added confidence scoring and explicit abstention with deterministic validation, so only high-confidence suggestions are applied automatically.</li>
+              <li>Built MCP tools for agents with input validation and gateway-based authorization; made model upgrades low-risk with per-customer rollout and automatic fallback.</li>
+            </ul>
+            <div class="tags"><span class="tag">LangGraph</span><span class="tag">MCP</span><span class="tag">LLM-as-judge</span><span class="tag">FastAPI</span><span class="tag">Terraform</span></div>
+          </div>
+
+          <div class="job reveal">
+            <div class="job-head">
+              <h3>Research Engineer · <span class="org">Disney Research Studios</span></h3>
+              <span class="meta">2025 · Zurich</span>
+            </div>
+            <ul>
+              <li>Worked with researchers to turn their text-to-image and text-to-video models into an internal multimodal generative-AI platform, updated with each new model.</li>
+              <li>Evaluated generative video across model iterations on a fixed prompt set, combining side-by-side review with shot-to-shot similarity metrics to detect visual incoherence.</li>
+              <li>Curated and cleaned training data; turned research code into a robust tool.</li>
+            </ul>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">Ollama</span><span class="tag">React</span></div>
+          </div>
+
+          <div class="job reveal">
+            <div class="job-head">
+              <h3>Software Engineer · <span class="org">Microsoft</span></h3>
+              <span class="meta">2020 Copenhagen · 2022 Zurich</span>
+            </div>
+            <ul>
+              <li>Integrated and shipped the Copilot Chat experience for Dynamics 365 Customer Insights.</li>
+              <li>Built large-scale distributed data pipelines in C# on Azure (Spark, Hadoop) to unify customer profiles.</li>
+              <li>Replaced a legacy polling system with event-driven push notifications (SignalR), cutting status-call traffic by 80%.</li>
+              <li>On-call for an enterprise-scale live service; fixed critical reliability weaknesses.</li>
+            </ul>
+            <div class="tags"><span class="tag">C#</span><span class="tag">Spark</span><span class="tag">Azure</span><span class="tag">TypeScript</span></div>
+          </div>
+
+          <div class="job reveal">
+            <div class="job-head">
+              <h3>Research Intern, Deep Learning · <span class="org">DeepCode</span></h3>
+              <span class="meta">2020 · Zurich · MSc thesis</span>
+            </div>
+            <ul>
+              <li>Trained and evaluated sequence-to-sequence and GPT-2 models to repair C++ null-pointer bugs, framed as graph transformations on code graphs.</li>
+              <li>Built the core AI component of an automated bug-fixing tool. Thesis awarded grade A.</li>
+            </ul>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">GPT-2</span><span class="tag">Seq2seq</span></div>
+          </div>
+
+          <div class="job reveal" style="padding-bottom:0">
+            <div class="job-head">
+              <h3>Software Engineer Intern · <span class="org">Amazon</span></h3>
+              <span class="meta">2019 · London</span>
+            </div>
+            <ul>
+              <li>Deployed an ML model to production for cost prediction and outlier detection (scikit-learn on AWS SageMaker).</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="reveal">Projects</h2>
+        <p class="sub reveal">Selected research and engineering work.</p>
+        <div class="projects">
+
+          <!--
+            TEMPLATE for a new project (e.g. your robot learning project).
+            Copy this block, uncomment it and fill it in:
+
+          <div class="card project reveal">
+            <span class="year">2027 · Personal project</span>
+            <h3>Project title</h3>
+            <p>One or two sentences: what you built, how you evaluated it, the main result.</p>
+            <div class="tags"><span class="tag">LeRobot</span><span class="tag">PyTorch</span></div>
+            <p style="margin-top:12px"><a href="https://github.com/RomaneCastel/REPO">Code →</a></p>
+          </div>
+          -->
+
+          <div class="card project reveal">
+            <span class="year">2026 · Luware</span>
+            <h3>Multilingual LLM evaluation harness</h3>
+            <p>Replays real assistant tasks in several languages and scores them with LLM judges to compare models and catch regressions. Includes evaluating the judge itself, which revealed it was penalising correct "I don't know" answers.</p>
+            <div class="tags"><span class="tag">LLM-as-judge</span><span class="tag">Python</span></div>
+          </div>
+
+          <div class="card project reveal">
+            <span class="year">2025 · Disney Research</span>
+            <h3>Evaluating generative video</h3>
+            <p>Tracked text-to-video quality across model iterations on a fixed prompt set, combining side-by-side review with shot-to-shot similarity metrics to detect visual incoherence.</p>
+            <div class="tags"><span class="tag">Generative video</span><span class="tag">Evaluation</span></div>
+          </div>
+
+          <div class="card project reveal">
+            <span class="year">2020 · DeepCode · MSc thesis</span>
+            <h3>Neural bug repair on code graphs</h3>
+            <p>Seq2seq and GPT-2 models that repair C++ null-pointer bugs by predicting which nodes and edges to add, remove or move in a code graph.</p>
+            <div class="tags"><span class="tag">GPT-2</span><span class="tag">PyTorch</span></div>
+          </div>
+
+          <div class="card project reveal">
+            <span class="year">2020 · ETH Zurich</span>
+            <h3>Neural network robustness verifier</h3>
+            <p>Automatic verifier certifying whether fully connected and convolutional networks are robust to L∞ perturbations, answering in under two minutes. Maximum grade, 6/6.</p>
+            <div class="tags"><span class="tag">Verification</span><span class="tag">PyTorch</span></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="reveal">Skills</h2>
+        <p class="sub reveal">Tools I use day to day.</p>
+        <div class="skills">
+          <div class="card reveal">
+            <h3>ML &amp; evaluation</h3>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">LLM-as-judge</span><span class="tag">Azure AI Foundry</span><span class="tag">scikit-learn</span></div>
+          </div>
+          <div class="card reveal">
+            <h3>Programming</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">C# / .NET</span><span class="tag">C / C++</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Angular</span></div>
+          </div>
+          <div class="card reveal">
+            <h3>Infra &amp; MLOps</h3>
+            <div class="tags"><span class="tag">Azure</span><span class="tag">AWS SageMaker</span><span class="tag">Terraform</span><span class="tag">CI/CD</span><span class="tag">OpenTelemetry</span><span class="tag">Feature-flagged rollouts</span></div>
+          </div>
+          <div class="card reveal">
+            <h3>Data &amp; systems</h3>
+            <div class="tags"><span class="tag">Apache Spark</span><span class="tag">Hadoop</span><span class="tag">Event-driven architecture</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">SignalR</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <h2 class="reveal">Education</h2>
+        <p class="sub reveal">&nbsp;</p>
+        <div class="edu">
+          <div class="card reveal">
+            <div>
+              <h3>ETH Zurich · Exchange semester in Machine Learning</h3>
+              <p class="meta">Advanced ML, Probabilistic AI, Neural network theory, Reliable &amp; interpretable AI</p>
+            </div>
+            <span class="meta">2019 – 2020</span>
+          </div>
+          <div class="card reveal">
+            <div>
+              <h3>ENSSAT · MEng in Computer Science</h3>
+              <p class="meta">Grade A</p>
+            </div>
+            <span class="meta">2017 – 2020</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="card reveal">
+          <h2>Let's talk</h2>
+          <p class="sub">Open to research engineering roles in Zurich, especially in agents, evaluation and robot learning.</p>
+          <div class="btns">
+            <a class="btn primary" href="mailto:romane.castel.pro@gmail.com">romane.castel.pro@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/romane-castel" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Romane Castel · Zurich</div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (remembers choice in this browser)
+    const root = document.documentElement;
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    // Reveal on scroll
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 }) : null;
+    document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('visible'));
+  </script>
+</body>
+</html>
