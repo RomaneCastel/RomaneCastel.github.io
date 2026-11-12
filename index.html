@@ -134,6 +134,8 @@
     .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
     .project .year { font-size: .8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .project.featured { grid-column: 1 / -1; }
+    .project.featured p + p { margin-top: 10px; }
 
     .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
@@ -324,6 +326,17 @@
             <p style="margin-top:12px"><a href="https://github.com/RomaneCastel/REPO">Code →</a></p>
           </div>
           -->
+
+          <div class="card project featured reveal">
+            <span class="year">2026 · Personal project · In progress</span>
+            <h3>ClimbVLA: feedback on your climbing from a phone video</h3>
+            <p>Film yourself on an indoor boulder problem and see how your climb compares, move by move, with a simulated reference climber on the same route, summed up as a Beta Score.</p>
+            <p>Built so far: the shared data format, climber tracking with RT-DETR and ViTPose across a whole video, and a skeleton overlay to check it by eye. Next: hold detection, a fine-tuned VLM for hold types, a C++ kinematics module for the route planner, and a reference climber trained with PPO in MuJoCo.</p>
+            <div class="tags"><span class="tag">Pose estimation</span><span class="tag">ViTPose</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">Pydantic</span></div>
+            <!-- Uncomment once the repo is public:
+            <p style="margin-top:12px"><a href="https://github.com/RomaneCastel/ClimbVLA" target="_blank" rel="noopener">Code →</a></p>
+            -->
+          </div>
 
           <div class="card project reveal">
             <span class="year">2026 · Luware</span>
