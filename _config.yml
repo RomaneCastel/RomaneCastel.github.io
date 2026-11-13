@@ -1,0 +1,27 @@
+# Site settings for Jekyll, which GitHub Pages runs on every push.
+title: Romane Castel
+description: Research engineer in Zurich working on LLM agents, model evaluation and generative AI.
+url: "https://romanecastel.github.io"
+baseurl: ""
+
+# A post in _posts/2026-11-20-my-post.md is published at /posts/my-post/
+permalink: /posts/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Every post uses the post layout, so posts don't need "layout: post".
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

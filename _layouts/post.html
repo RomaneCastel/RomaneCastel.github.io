@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% capture summary %}{% if page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endif %}{% endcapture %}
+  <title>{{ page.title }} · Romane Castel</title>
+  <meta name="description" content="{{ summary | strip | escape }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ summary | strip | escape }}">
+  {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+  {% include head.html %}
+</head>
+<body>
+  {% include nav.html %}
+
+  <main class="wrap narrow">
+    <a class="back" href="{{ '/' | relative_url }}#posts">← All posts</a>
+    <article>
+      <header class="post-head">
+        <span class="date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time> · {% include reading-time.html content=content %}</span>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+        {% if page.tags.size > 0 %}<div class="tags">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+      </header>
+
+      <div class="prose">
+        {{ content }}
+      </div>
+    </article>
+
+    <div class="post-foot">
+      <a class="btn" href="{{ '/' | relative_url }}#posts">← All posts</a>
+    </div>
+  </main>
+
+  {% include footer.html %}
+</body>
+</html>
